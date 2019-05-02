@@ -1,5 +1,6 @@
 package io.github.hobbstech.fuel_station_locator_backend;
 
+import lombok.val;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class FuelUpdaterService {
 
 
     public void updateFuelStatus(UpdateFuelDto updateFuelDto) {
-        var quantities = new Quantities(updateFuelDto.getPetrolLevel(), updateFuelDto.getDieselLevel());
+        val quantities = new Quantities(updateFuelDto.getPetrolLevel(), updateFuelDto.getDieselLevel());
         firebaseService.postData(quantities);
     }
 }
